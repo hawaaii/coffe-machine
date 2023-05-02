@@ -8,21 +8,21 @@ import (
 func main() {
 	machineContents := map[string]int{"water": 400, "milk": 540, "beans": 120, "money": 550, "cups": 9}
 	exit := false
-  for {
-		switch getUserAction() {
-		case "buy":
-			buyFromMachine(&machineContents)
-		case "fill":
-			fillMachine(&machineContents)
-		case "take":
-			submitMoneyMachine(&machineContents)
-		case "remaining":
-			printMachineStatus(&machineContents)
-		case "exit":
-      exit = true
-		}
-    if exit {break}
-	}
+	for {
+  	  switch getUserAction() {
+	     case "buy":
+		buyFromMachine(&machineContents)
+	     case "fill":
+		fillMachine(&machineContents)
+	     case "take":
+		submitMoneyMachine(&machineContents)
+	     case "remaining":
+		printMachineStatus(&machineContents)
+	     case "exit":
+	        exit = true
+	  }
+          if exit {break}
+        }
 }
 
 func getUserAction() string {
@@ -48,9 +48,9 @@ func buyFromMachine(machineContents *map[string]int) {
 	var buyOption string
 	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
 	fmt.Scan(&buyOption)
-  if buyOption == "back" {return}
+        if buyOption == "back" {return}
   
-  itemSelection, _ := strconv.Atoi(buyOption)
+        itemSelection, _ := strconv.Atoi(buyOption)
 	if machine["water"] < menu[itemSelection][0] {
 		fmt.Println("Sorry, not enough water!")
 		return
